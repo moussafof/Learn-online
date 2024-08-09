@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+   {{ super() }} | Mes Cours
+   
+{% endblock %}
+
+{% block content%}
+   {{ super()}}
+   {%include 'shared/carousel.html'%}
+
+    <div id="mes_cours">
+        <p  class=" font-bold text-4xl leading-normal flex justify-center  mt-2">Liste des Cours </p>
+    </div>
+        {% for item in mes_cours %}
+            <div class="max-w-xs mx-2 my-4 mb-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col transition-transform  transform hover:scale-105 flex flex">
+                    <a href="{{ url_for('course_details', course_id=item.course.id) }}">
+                    <img src="{{ item.course.image }}" alt="{{ item.course.title }}">
+                    <h2 class="mb-4 text-3xl font-bold text-sm tracking-tight text-gray-900 dark:text-white">{{ item.course.title }}</h2>
+                    <p class="mb-4  font-bold text-sm tracking-tight text-gray-700 dark:text-white">Date d'achat : {{ item.purchase_date }}</p>
+            </div>
+        {% endfor %}
+        <script  src="{{ url_for('static', filename='js/displayPanier.js') }}"></script>
+
+{% endblock%}

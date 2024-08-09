@@ -1,0 +1,26 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+   {{ super() }} | Panier
+   
+{% endblock %}
+
+{% block content%}
+   {{ super()}}
+   {%include 'shared/carousel.html'%}
+   <div id="mes_cours">
+      <p  class=" font-bold text-4xl leading-normal flex justify-center  mt-2">Le Panier </p>
+  </div>    <div id="cart-container" class="flex flex-wrap space-between"></div>
+    <hr class="h-10 font-bold ">
+    <div >
+      <div id="total-prix" class="text-2xl font-bold mt-4">Total: 0.00 FCFA</div>
+      <div>
+         <a href="#" id="validate-cart-btn" class="inline-flex  place-content-center mt-20 px-35 py-19 text-4xl font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer  min-w-8 px-4 select-none whitespace-nowrap "  >
+            Validation
+            
+      </a>
+      </div>
+    </div>
+    <script  src="{{ url_for('static', filename='js/displayPanier.js') }}"></script>
+
+{% endblock%}

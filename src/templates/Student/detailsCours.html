@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="{{url_for('static',filename='css/afficherVideos.css')}}">
+{% extends "layouts/base.html" %}
+{% block title %}
+   {{ super() }} | videos du cours
+   
+{% endblock %}
+
+{% block content%}
+   {{ super()}}
+   {%include 'shared/carousel.html'%}
+   <div class="container">
+      <h1 class="mb-4  font-bold text-sm tracking-tight text-gray-900 dark:text-white">{{ course.title }}</h1>
+
+      <h2>Vidéos du cours</h2>
+      <div >
+          {% for v in videos %}
+              <div class="video-card border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" >
+                  
+                     <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ v.url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  
+                  <h3 class="mb-4 font-bold text-sm tracking-tight text-gray-900 dark:text-white">{{ v.title }}</h3>
+              </div>
+          {% endfor %}
+      </div>
+  </div>
+   
+{% endblock%}

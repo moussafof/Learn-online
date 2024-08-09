@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+   {{ super() }} | Description
+   
+{% endblock %}
+
+{% block content%}
+   {{ super()}}
+   {%include 'shared/carousel.html'%}
+    <div id="description"></div>
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold mb-4">{{ ici.title }}</h1>
+      <p class="mb-4">{{ ici.description }}</p>
+      <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 add-to-cart-btn" data-id="{{ ici.id }}">
+          Ajouter au panier ?
+      </a>
+  </div>
+  <script src="{{ url_for('static', filename='js/description.js') }}"></script>
+
+{% endblock%}
